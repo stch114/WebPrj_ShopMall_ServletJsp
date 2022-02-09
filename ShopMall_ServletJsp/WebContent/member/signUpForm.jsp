@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <script type="text/javascript"
 	src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
 <script type="text/javascript">
@@ -41,7 +41,7 @@
 	*비밀번호: <input type="text" name="passwd" id="passwd"><br>
 	비빌번호 확인: <input type="text" name="passwd2" id="passwd2"> <span id="result2"></span><br> 
 	이름: <input type="text" name="username"><br>
-	<input type="text" name="postcode" id="postcode" placeholder="우편번호">
+	<input type="text" name="post" id="postcode" placeholder="우편번호">
 	<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br> 
 	<input type="text" name="addr1" id="roadNameAdd" placeholder="도로명 주소"> 
 	<input type="text" name="addr2" id="lotNumberAdd" placeholder="지번 주소">
