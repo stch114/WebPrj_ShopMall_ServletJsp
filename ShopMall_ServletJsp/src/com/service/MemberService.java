@@ -8,7 +8,7 @@ import com.dto.MemberDTO;
 
 public class MemberService {
 
-	MemberDAO dao;
+	private MemberDAO dao;
 
 	public MemberService() {
 		super();
