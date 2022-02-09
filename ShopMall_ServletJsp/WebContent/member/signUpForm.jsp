@@ -34,10 +34,28 @@
 		$("#emailSel").change(function() {
 			$("#email2").val($(this).val());
 		});
+		
+		// id 중복 여부 체크 -> ajax로 비동기 처리.
+		$("#userid").on("keyup", function(event) {
+			$.ajax({
+				type : "get",
+				url : "CheckIdServlet",
+				dataType : "text", // 응답 데이터 타입
+				data : {
+					userid : $("#userid").val()
+				},
+				success : function(responseData, status, xhr) {
+					$("#result").text(responseData);
+				},
+				error : function(xhr, status, error) {
+					console.log("error");
+				}
+			}); // end of ajax
+		}); // end of id 중복 여부 체크
 	});
 </script>
 <form action="AddMemberServlet" method="get">
-	*아이디: <input type="text" name="userid" id="userid"><br>
+	*아이디: <input type="text" name="userid" id="userid"> <span id="result"></span><br>
 	*비밀번호: <input type="text" name="passwd" id="passwd"><br>
 	비빌번호 확인: <input type="text" name="passwd2" id="passwd2"> <span id="result2"></span><br> 
 	이름: <input type="text" name="username"><br>

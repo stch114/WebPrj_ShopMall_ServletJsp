@@ -12,4 +12,8 @@ public class MemberDAO {
 		return n;
 	}
 
+	public int checkId(SqlSession session, String userid) {
+		int count = session.selectOne("MemberMapper.checkId", userid);
+		return count;
+	}
 }

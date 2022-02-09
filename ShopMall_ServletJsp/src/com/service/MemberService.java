@@ -27,4 +27,17 @@ public class MemberService {
 		}
 		return n;
 	}
+
+	public int checkId(String userid) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int count = 0;
+		try {
+			count = dao.checkId(session, userid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return count;
+	}
 }
