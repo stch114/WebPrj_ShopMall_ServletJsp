@@ -5,6 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Main</title>
+<%
+	String mesg = (String) session.getAttribute("addMember");
+if (mesg != null) { // 회원 정보가 있다면(session으로 데이터가 제대로 넘어온다면)
+%>
+<script type="text/javascript">
+	alert("<%=mesg%>");
+</script>
+<%
+	}
+%>
 </head>
 <body>
 	<h1>Main Page</h1>
