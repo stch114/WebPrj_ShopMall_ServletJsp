@@ -6,8 +6,10 @@
 	있는 것으로 생각됨. */
 MemberDTO dto = (MemberDTO) session.getAttribute("logIn");
 if (dto != null) { // 로그인이 되었을 경우에 main으로 include될 부분.
+	String username = dto.getUsername();
 %>
-<a href="">LogOut</a>
+안녕하세요, <%=username%>님.&nbsp;&nbsp;&nbsp;
+<a href="LogOutServlet">LogOut</a>
 <a href="">MyCart</a>
 <a href="">MyPage</a>
 <%
