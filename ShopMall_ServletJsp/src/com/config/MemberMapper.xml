@@ -12,4 +12,9 @@
 	<select id="checkId" parameterType="String" resultType="int">
 		select count(*) from member where userid = #{userid}
 	</select>
+	
+	<select id="logIn" parameterType="HashMap" resultType="MemberDTO">
+		select userid, passwd, username, post, addr1, addr2, phone1, phone2, phone3,
+		email1, email2 from member where userid = #{userid} and passwd = #{passwd}
+	</select>
 </mapper>

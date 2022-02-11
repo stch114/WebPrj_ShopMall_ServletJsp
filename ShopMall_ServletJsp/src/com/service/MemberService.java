@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
@@ -39,5 +41,18 @@ public class MemberService {
 			session.close();
 		}
 		return count;
+	}
+
+	public MemberDTO logIn(HashMap<String, String> map) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		MemberDTO dto = null;
+		try {
+			dto = dao.logIn(session, map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return dto;
 	}
 }
