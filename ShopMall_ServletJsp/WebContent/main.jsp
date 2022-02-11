@@ -13,7 +13,8 @@ if (mesg != null) { // 회원 정보가 있다면(session으로 데이터가 제
 	alert("<%=mesg%>");
 </script>
 <%
-	}
+	session.removeAttribute("addMember"); // 회원가입 완료 후 session의 해당 속성 삭제.
+}
 %>
 </head>
 <body>
