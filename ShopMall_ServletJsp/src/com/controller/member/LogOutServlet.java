@@ -18,7 +18,7 @@ public class LogOutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate(); // 로그아웃(세션 제거).
 
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("main"); // main.jsp -> MainServlet으로 변경해주었음.
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

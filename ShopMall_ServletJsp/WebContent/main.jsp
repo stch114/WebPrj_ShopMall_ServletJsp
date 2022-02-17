@@ -23,5 +23,7 @@ if (mesg != null) { // 회원 정보가 있다면(session으로 데이터가 제
 		동적 삽입함(jsp:include 사용). -->
 	<jsp:include page="common/menu.jsp" flush="true"></jsp:include><br>
 	<jsp:include page="common/top.jsp" flush="true"></jsp:include>
+	<hr>
+	<jsp:include page="goods/goodsList.jsp" flush="true"></jsp:include>
 </body>
 </html>

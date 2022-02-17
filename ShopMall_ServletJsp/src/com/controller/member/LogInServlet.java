@@ -32,7 +32,7 @@ public class LogInServlet extends HttpServlet {
 
 		String nextPage = null;
 		if (dto != null) { // 회원인 경우
-			nextPage = "main.jsp";
+			nextPage = "main"; // main.jsp -> MainServlet으로 변경해주었음.
 			HttpSession session = request.getSession();
 			session.setAttribute("logIn", dto);
 			session.setMaxInactiveInterval(60 * 60); // 1시간(세션 만료 시간) 설정.
