@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+div {
+	margin: 0 auto;
+}
+
+#table1 {
+	padding: 0 1rem;
+	margin: 0 auto;
+}
+
+#table2 {
+	width: 20rem;
+	margin: 0 auto;
+}
+
+td.h {
+	height: 0.8rem;
+}
+
+td.c {
+	text-align: center;
+}
+
+img {
+	display: block;
+	margin: auto;
+}
