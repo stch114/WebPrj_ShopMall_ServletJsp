@@ -11,7 +11,7 @@ if (dto != null) { // 로그인이 되었을 경우에 main으로 include될 부
 안녕하세요, <%=username%>님.&nbsp;&nbsp;&nbsp;
 <a href="LogOutServlet">LogOut</a>
 <a href="">MyCart</a>
-<a href="">MyPage</a>
+<a href="MyPageServlet">MyPage</a>
 <%
 	} else { // 로그인 되지 않은 상태에 main으로 include될 기존의 부분.
 %>
@@ -19,7 +19,7 @@ if (dto != null) { // 로그인이 되었을 경우에 main으로 include될 부
 <a href="LogInUIServlet">LogIn</a>
 <a href="SignUpUIServlet">SignUp</a>
 <a href="">MyCart</a>
-<a href="">MyPage</a>
+<a href="MyPageServlet">MyPage</a>
 <%
 	} // end of 'if ~ else'
 %>
