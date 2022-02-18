@@ -37,7 +37,7 @@ public class LogInServlet extends HttpServlet {
 			session.setAttribute("logIn", dto);
 			session.setMaxInactiveInterval(60 * 60); // 1시간(세션 만료 시간) 설정.
 		} else { // 회원이 아닌 경우(DB에 저장된 회원정보가 없는 경우)
-			nextPage = "LoginUIServlet";
+			nextPage = "LogInUIServlet";
 		}
 		response.sendRedirect(nextPage);
 	}

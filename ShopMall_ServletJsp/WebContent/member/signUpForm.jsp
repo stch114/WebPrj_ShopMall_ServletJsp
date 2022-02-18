@@ -50,8 +50,8 @@
 				error : function(xhr, status, error) {
 					console.log("error");
 				}
-			}); // end of ajax
-		}); // end of id 중복 여부 체크
+			}); // end of 'ajax'
+		}); // end of 'id 중복 여부 체크'
 	});
 </script>
 <form action="AddMemberServlet" method="get">
