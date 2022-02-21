@@ -79,4 +79,17 @@ public class MemberService {
 		}
 		return n;
 	}
+
+	public String searchForId(MemberDTO dto) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		String userid = null;
+		try {
+			userid = dao.searchForId(session, dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return userid;
+	}
 }
