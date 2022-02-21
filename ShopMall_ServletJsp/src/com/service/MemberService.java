@@ -18,7 +18,6 @@ public class MemberService {
 	}
 
 	public int addMember(MemberDTO dto) {
-
 		SqlSession session = MySqlSessionFactory.getSession();
 		int n = 0;
 		try {
@@ -67,5 +66,17 @@ public class MemberService {
 			session.close();
 		}
 		return dto;
+	}
+
+	public int updateMyInfo(HashMap<String, String> map) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			n = dao.updateMyInfo(session, map);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
 	}
 }

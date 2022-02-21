@@ -8,11 +8,11 @@
 		phone3, email1, email2) values (#{userid}, #{passwd}, #{username}, #{post}, #{addr1},
 		#{addr2}, #{phone1}, #{phone2}, #{phone3}, #{email1}, #{email2})
 	</insert>
-	
+
 	<select id="checkId" parameterType="String" resultType="int">
 		select count(*) from member where userid = #{userid}
 	</select>
-	
+
 	<select id="logIn" parameterType="HashMap" resultType="MemberDTO">
 		select userid, passwd, username, post, addr1, addr2, phone1, phone2, phone3,
 		email1, email2 from member where userid = #{userid} and passwd = #{passwd}
@@ -21,5 +21,11 @@
 	<select id="myPage" parameterType="String" resultType="MemberDTO">
 		select userid, passwd, username, post, addr1, addr2, phone1, phone2, phone3,
 		email1, email2 from member where userid = #{userid}
-	</select>
+	</select>	
+	
+	<update id="updateMyInfo" parameterType="HashMap">
+		update member set post = #{post}, addr1 = #{addr1}, addr2 = #{addr2}, 
+		phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3}, email1 = #{email1}, 
+		email2 = #{email2} where userid = #{userid}
+	</update>
 </mapper>

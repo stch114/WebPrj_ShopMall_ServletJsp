@@ -28,4 +28,9 @@ public class MemberDAO {
 		MemberDTO dto = session.selectOne("MemberMapper.myPage", userid);
 		return dto;
 	}
+
+	public int updateMyInfo(SqlSession session, HashMap<String, String> map) {
+		int n = session.update("MemberMapper.updateMyInfo", map);
+		return n;
+	}
 }
