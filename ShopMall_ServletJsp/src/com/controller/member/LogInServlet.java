@@ -21,6 +21,7 @@ public class LogInServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// logInForm.jsp에서 받은 데이터 파싱.
+		request.setCharacterEncoding("utf-8");
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");
 		HashMap<String, String> map = new HashMap<>();
