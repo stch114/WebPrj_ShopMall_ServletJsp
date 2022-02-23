@@ -41,6 +41,7 @@ public class SearchForIdServlet extends HttpServlet {
 			request.setAttribute("mesg", "이름 또는 핸드폰이 등록되어 있지 않습니다.");
 		} else { // 회원 정보에 해당되는 ID가 있는 경우
 			nextPage = "SendMailServlet";
+			request.setAttribute("mesg", "메일이 발송되었으니 확인하고 로그인 하시기 바랍니다.");
 			// 이름, 이메일 정보, 아이디 등의 회원정보를 각각 request스코프에 저장.
 			request.setAttribute("mailTo", email1 + "@" + email2);
 			request.setAttribute("username", username);

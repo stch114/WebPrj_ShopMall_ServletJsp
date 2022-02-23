@@ -11,6 +11,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +26,7 @@ public class SendMailServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// 별도의 .jar파일들을 라이브러리로 추가하여 작업한 부분(mailapi, pop3, smtp).
+		// 주의! Java8 버전에서 작업하였음. 11로 환경설정 한 후에 해당 작업 시 에러 발생.
 
 		// searchForIdServlet에서 request스코프에 저장해둔 데이터 받음.
 		String mailTo = (String) request.getAttribute("mailTo");
@@ -78,7 +80,8 @@ public class SendMailServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("LogInUIServlet");
+		RequestDispatcher dis = request.getRequestDispatcher("LogInUIServlet");
+		dis.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -11,6 +11,7 @@ public class SendMail extends javax.mail.Authenticator {
 
 		System.out.println("PasswdAuthentication");
 		// naver, gmail 등 사용자의 email 계정 정보 입력.
-		return new PasswordAuthentication("ㅁㅁ", "ㅁㅁㅁㅁㅁ"); // 파라미터 -> id, 비밀번호.
+		// 파라미터 -> id(@이하는 제외), 비밀번호.
+		return new PasswordAuthentication("ㅁㅁ", "ㅁㅁㅁㅁㅁ");
 	}
 }
