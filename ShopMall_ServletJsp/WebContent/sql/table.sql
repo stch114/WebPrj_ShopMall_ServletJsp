@@ -131,7 +131,7 @@ insert into goods
   insert into goods 
   values ('B5',	'bottom', '베일리 롱 스커트',	'데일리로 입기 좋은 베이직 디자인 롱 스커트', '9800', 'bottom5');
   insert into goods 
-  values ('B6',	'bottom', '컴포터블 미니 플레어 스커트',	'속바지 안감이 붙어있는 베이직한 스타일의 플레어 스커트', '9800' , 'bottom7');
+  values ('B6',	'bottom', '컴포터블 미니 플레어 스커트',	'속바지 안감이 붙어있는 베이직한 스타일의 플레어 스커트', '9800' , 'bottom6');
   insert into goods 
   values ('B7',	'bottom', '페일 컬러 후드 트레이닝 세트',	'간편하게 입기 좋은 트레이닝 세트', '9800', 'bottom7');
   insert into goods 
