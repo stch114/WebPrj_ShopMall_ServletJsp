@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+div {
+	margin: 0 auto;
+}
+
+#table1 {
+	padding: 0 1rem;
+	margin: 0 15rem 0 10rem;
+}
+
+#table2 {
+	text-align: center;
+	width: 60rem;
+	height: 30rem;
+	margin-left: 2rem;
+}
+
+#f {
+	font-size: 1.5rem; 
+	font-weight: bold;
+}
+
+.h {
+	height: 0.6rem;
+}
+
+#gImage {
+	display: block;
+	margin: auto;
+}
+
+.p {
+	padding-left: 2rem;
+}
+
+span {
+	color: #2e56a9;
+	font-weight: bold;
+}

@@ -7,4 +7,9 @@
 		select gcode, gcategory, gname, gcontent, gprice, gimage from goods
 		where gcategory = #{gcategory}
 	</select>
+	
+	<select id="goodsDetail" parameterType="String" resultType="GoodsDTO">
+		select gcode, gcategory, gname, gcontent, gprice, gimage from goods 
+		where gcode = #{gcode}
+	</select>
 </mapper>

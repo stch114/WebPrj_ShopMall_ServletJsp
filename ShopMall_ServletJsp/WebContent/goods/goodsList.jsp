@@ -30,13 +30,19 @@
 				<td>
 					<table id="table2">
 						<tr>
-							<td><img src="images/items/<%=gimage%>.gif"></td>
+							<td>
+								<a href="GoodsDetailServlet?gcode=<%=gcode%>">
+									<img src="images/items/<%=gimage%>.gif">
+								</a>	
+							</td>
 						</tr>
 						<tr>
 							<td class="h"></td>
 						</tr>
 						<tr>
-							<td class="c"><%=gname%></td>
+							<td class="c">
+								<a href="GoodsDetailServlet?gcode=<%=gcode%>"><%=gname%></a>
+							</td>
 						</tr>
 						<tr>
 							<td class="c" class="h" style="color: gray;">

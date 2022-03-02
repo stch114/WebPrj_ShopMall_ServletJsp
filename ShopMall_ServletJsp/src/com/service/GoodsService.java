@@ -29,4 +29,17 @@ public class GoodsService {
 		}
 		return list;
 	}
+
+	public GoodsDTO goodsDetail(String gcode) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		GoodsDTO dto = null;
+		try {
+			dto = dao.goodsDetail(session, gcode);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return dto;
+	}
 }
