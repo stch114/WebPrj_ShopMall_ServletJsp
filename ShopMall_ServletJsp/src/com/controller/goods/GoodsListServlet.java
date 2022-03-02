@@ -1,4 +1,4 @@
-package com.controller.main;
+package com.controller.goods;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,23 +13,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.dto.GoodsDTO;
 import com.service.GoodsService;
 
-@WebServlet("/main")
-public class MainServlet extends HttpServlet {
+@WebServlet("/GoodsListServlet")
+public class GoodsListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String gcategory = request.getParameter("gcategory"); // top.jsp에서 전송한 데이터 파싱.
+		if (gcategory == null) { // 전송 데이터 없을 경우에는(= main 화면에서는) top의 상품 사진이 보이도록.
+			gcategory = "top";
+		}
 		GoodsService service = new GoodsService();
-
-		// gcategory를 파라미터로.
-		// main화면에선 'gcategory=top'인 상품의 사진들 보이도록).
-		List<GoodsDTO> list = service.goodsList("top");
-		System.out.println(list.size());
+		List<GoodsDTO> list = service.goodsList(gcategory);
 
 		request.setAttribute("goodsList", list);
-		// request스코프로 데이터 저장했기 때문에 화면처리는 forward 방식으로.
+
 		RequestDispatcher dis = request.getRequestDispatcher("main.jsp");
 		dis.forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
