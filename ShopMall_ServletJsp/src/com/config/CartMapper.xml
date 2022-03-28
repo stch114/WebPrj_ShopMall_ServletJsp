@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CartMapper">
+
+	<insert id="putInCart" parameterType="CartDTO">
+		<!-- num칼럼에 시퀀스 사용한 것 주의. -->
+		insert into cart (num, userid, gcode, gname, gprice, gsize, gcolor, gamount, gimage)
+		values (cart_seq.nextval, #{userid}, #{gcode}, #{gname}, #{gprice}, #{gsize}, 
+		#{gcolor}, #{gamount}, #{gimage})
+	</insert>
+</mapper>

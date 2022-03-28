@@ -8,6 +8,44 @@
 <title></title>
 <link rel="stylesheet" type="text/css" href="goods/goodsDetail.css">
 <style></style>
+<%
+	/* CartServlet에서 저장해둔 session 정보. */
+	String mesg = (String) session.getAttribute("mesg");
+if (mesg != null) {
+%>
+<script>
+alert('<%=mesg%>');
+</script>
+
+<%
+	}
+session.removeAttribute("mesg");
+%>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script type="text/javascript">	
+	$(document).ready(function() {
+
+		$("#cart").on("click", function() {
+
+			if ($("#gsize").val() == "사이즈 선택") {
+				alert("사이즈를 선택하세요.");
+				return false;
+				// event.preventDefault();
+			}
+
+			if ($("#gcolor").val() == "색상 선택") {
+				alert("색상을 선택하세요.");
+				return false;
+				// event.preventDefault();
+			}
+
+			$("form").attr("action", "CartServlet");
+		});
+
+	});
+</script>
 </head>
 <body>
 <%
@@ -18,6 +56,10 @@ int gprice = dto.getGprice();
 String gimage = dto.getGimage();
 %>
 <form>
+	<input type="hidden" name="gcode" value="<%=gcode%>"> 
+	<input type="hidden" name="gname" value="<%=gname%>"> 
+	<input type="hidden" name="gprice" value="<%=gprice%>">
+	<input type="hidden" name="gimage" value="<%=gimage%>"> 
 	<div>
 		<table id="table1">
 			<tr>
@@ -34,35 +76,35 @@ String gimage = dto.getGimage();
 						</tr>
 						<tr>
 							<td rowspan="10">
-								<img id="gImage" src="images/items/<%=gimage%>.gif">
+								<img id="gimage" src="images/items/<%=gimage%>.gif">
 							</td>
-							<th class="gInfo">상품 코드</th>
+							<th class="ginfo">상품 코드</th>
 							<td class="p" colspan="2"><%=gcode%></td>
 						</tr>
 						<tr>
-							<th class="gInfo">상품명</th>
+							<th class="ginfo">상품명</th>
 							<td class="p" colspan="2"><%=gname%></td>
 						</tr>
 						<tr>
-							<th class="gInfo">가격</th>
+							<th class="ginfo">가격</th>
 							<td class="p" colspan="2"><%=gprice%></td>
 						</tr>
 						<tr>
-							<th class="gInfo">배송비</th>
+							<th class="ginfo">배송비</th>
 							<td class="p" colspan="2" style="font-size:1rem;">
 								<span>무료 배송</span>(도서 산간 지역은 별도 배송비 추가)
 							</td>
 						</tr>
 						<tr>
-							<th class="gInfo">상품 옵션</th>
+							<th class="ginfo">상품 옵션</th>
 							<td class="p">
-								<select name="gSize" id="gSize">
+								<select name="gsize" id="gsize">
 									<option selected value="사이즈 선택">사이즈 선택</option>
 									<option value="L">L</option>
 									<option value="M">M</option>
 									<option value="S">S</option>
 								</select><br>
-								<select name="gColor" id="gColor">
+								<select name="gcolor" id="gcolor">
 									<option selected value="색상 선택">색상 선택</option>
 									<option value="navy">navy</option>
 									<option value="black">black</option>
@@ -76,18 +118,19 @@ String gimage = dto.getGimage();
 							<td class="h"></td>
 						</tr>
 						<tr>
-							<th class="gInfo">주문 수량</th>
+							<th class="ginfo">주문 수량</th>
 							<td class="p">
-								<input type="text" name="gAmount" id="gAmount" 
+								<input type="text" name="gamount" id="gamount" 
 								value="1" style="text-align:right;"> 
-								<img class="gAmount" src="images/up.PNG"> 
-								<img class="gAmount" src="images/down.PNG">
+								<img class="gamount" src="images/up.PNG"> 
+								<img class="gamount" src="images/down.PNG">
 							</td>
 						</tr>
 						<tr>
 							<td></td>
 							<td>
-								<button>바로 구매</button>&nbsp;&nbsp;<button>장바구니에 담기</button>
+								<button>바로 구매</button>&nbsp;&nbsp;
+								<button id="cart">장바구니에 담기</button>
 							</td>
 						</tr>
 					</table>
@@ -95,8 +138,6 @@ String gimage = dto.getGimage();
 			</tr>
 		</table>
 	</div>
-	<br>
-	
 </form>
 </body>
 </html>
