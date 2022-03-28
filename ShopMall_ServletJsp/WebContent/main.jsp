@@ -13,6 +13,18 @@ if (mesg != null) { // 회원 정보가 있다면(session으로 데이터가 제
 	alert("<%=mesg%>");
 </script>
 <%
+	session.removeAttribute("addMember"); // 회원가입 완료 후 session의 해당 속성 삭제.
+}
+%>
+
+<%  /* UpdateMyInfoServlet으로부터 회원정보 수정 시 alert창 출력. */
+	mesg = (String) request.getAttribute("mesg");
+if (mesg != null) {
+%>
+<script type="text/javascript">
+	alert("<%=mesg%>");
+</script>	
+<%
 }
 %>
 </head>
