@@ -1,7 +1,6 @@
 package com.controller.member;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,6 +25,8 @@ public class UpdateMyInfoServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		if (dto != null) {
 			String userid = request.getParameter("userid");
+			String passwd = request.getParameter("passwd");
+			String username = request.getParameter("username");
 			String post = request.getParameter("post");
 			String addr1 = request.getParameter("addr1");
 			String addr2 = request.getParameter("addr2");
@@ -35,18 +36,10 @@ public class UpdateMyInfoServlet extends HttpServlet {
 			String email1 = request.getParameter("email1");
 			String email2 = request.getParameter("email2");
 
-			HashMap<String, String> map = new HashMap<>();
-			map.put("userid", userid);
-			map.put("post", post);
-			map.put("addr1", addr1);
-			map.put("addr2", addr2);
-			map.put("phone1", phone1);
-			map.put("phone2", phone2);
-			map.put("phone3", phone3);
-			map.put("email1", email1);
-			map.put("email2", email2);
+			MemberDTO dto2 = new MemberDTO(userid, passwd, username, post, addr1, addr2, phone1, phone2, phone3, email1,
+					email2);
 			MemberService service = new MemberService();
-			int num = service.updateMyInfo(map);
+			int num = service.updateMyInfo(dto2);
 			System.out.println("수정된 레코드: " + num + "개");
 			nextPage = "main";
 			request.setAttribute("mesg", "회원 정보가 수정되었습니다.");
