@@ -22,6 +22,7 @@ public class AddMemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		request.setCharacterEncoding("utf-8");
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");
 		String username = request.getParameter("username");
@@ -47,7 +48,7 @@ public class AddMemberServlet extends HttpServlet {
 			session.setAttribute("addMember", "회원가입 성공");
 		}
 		session.setMaxInactiveInterval(60 * 30); // session 만료시간 30분.
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("main"); // main.jsp -> MainServlet으로 변경해주었음.
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

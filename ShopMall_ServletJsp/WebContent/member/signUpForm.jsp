@@ -54,7 +54,7 @@
 		}); // end of 'id 중복 여부 체크'
 	});
 </script>
-<form action="AddMemberServlet" method="get">
+<form action="AddMemberServlet" method="post">
 	*아이디: <input type="text" name="userid" id="userid"> <span id="result"></span><br>
 	*비밀번호: <input type="text" name="passwd" id="passwd"><br>
 	비빌번호 확인: <input type="text" name="passwd2" id="passwd2"> <span id="result2"></span><br> 
