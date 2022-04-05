@@ -18,6 +18,26 @@
 	text-align: center;
 }
 </style>
+<script type="text/javascript" 
+	src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// 개별 삭제 
+		$(".deleteSep").on("click", function() {
+			var num = $(this).attr("data");
+			console.log("호출 확인");
+			location.href = "DeleteSepServlet?num=" + num;
+		});
+		
+		// 전체 선택
+		$("#checkAll").on("click", function() {
+			var result = this.checked;
+			$(".checkOne").each(function(idx, data) {
+				this.checked = result;
+			});
+		});
+	});
+</script>
 </head>
 <body>
 	<div>
@@ -79,10 +99,13 @@
 					String gimage = dto.getGimage();
 				%>
 				<tr>	
-					<td class="c"><input type="checkbox" name="checkOne" id="checkOne"></td>
+					<td class="c">
+						<input type="checkbox" name="checkOne" class="checkOne">
+					</td>
 					<td class="c"><%=num%></td>
 					<td class="c">
-						<img src="images/items/<%=gimage%>.gif" style="width:7rem; padding-left:2rem;">
+						<img src="images/items/<%=gimage%>.gif" style="width:7rem; 
+						padding-left:2rem;">
 					</td>
 					<td style="padding-left:1rem;">
 						<%=gname%><br> 
@@ -101,7 +124,8 @@
 					</td>
 					<td class="c"><input type="button" value="구매"></td>
 					<td class="c">
-						<input type="button" value="장바구니에서 삭제">
+						<input type="button" value="장바구니에서 삭제" class="deleteSep" 
+						data="<%=num%>">
 					</td>
 					<td></td>
 				</tr>

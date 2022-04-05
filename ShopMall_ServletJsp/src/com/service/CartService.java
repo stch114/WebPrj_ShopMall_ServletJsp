@@ -41,4 +41,16 @@ public class CartService {
 		}
 		return list;
 	}
+
+	public int deleteSep(int num) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			n = dao.deleteSep(session, num);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
 }

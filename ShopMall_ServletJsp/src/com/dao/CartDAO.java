@@ -17,4 +17,9 @@ public class CartDAO {
 		List<CartDTO> list = session.selectList("CartMapper.cartList", userid);
 		return list;
 	}
+
+	public int deleteSep(SqlSession session, int num) {
+		int n = session.delete("CartMapper.deleteSep", num);
+		return n;
+	}
 }

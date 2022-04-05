@@ -15,4 +15,8 @@
 		select num, userid, gcode, gname, gprice, gsize, gcolor, gamount, gimage from cart 
 		where userid = #{userid}
 	</select>
+	
+	<delete id="deleteSep" parameterType="int">
+		delete from cart where num = #{num}
+	</delete>
 </mapper>
