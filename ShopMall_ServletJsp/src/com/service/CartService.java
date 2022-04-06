@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -47,6 +48,18 @@ public class CartService {
 		int n = 0;
 		try {
 			n = dao.deleteSep(session, num);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
+
+	public int changeQty(HashMap<String, Integer> map) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			n = dao.changeQty(session, map);
 			session.commit();
 		} finally {
 			session.close();

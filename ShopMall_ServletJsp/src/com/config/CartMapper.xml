@@ -19,4 +19,8 @@
 	<delete id="deleteSep" parameterType="int">
 		delete from cart where num = #{num}
 	</delete>
+	
+	<update id="changeQty" parameterType="HashMap">
+		update cart set gamount = #{gamount} where num = #{num}
+	</update>
 </mapper>

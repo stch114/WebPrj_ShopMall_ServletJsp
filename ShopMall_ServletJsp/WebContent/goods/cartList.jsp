@@ -36,6 +36,29 @@
 				this.checked = result;
 			});
 		});
+		
+		// 수량 변경
+		$(".changeQty").on("click", function() {
+			var num = $(this).attr("data");
+			var gamount = $("#gamount" + num).val();
+			var gprice = $(this).attr("data-price");
+			$.ajax({
+				url : 'ChangeQtyServlet',
+				type : 'get',
+				dataType : 'text',
+				data : {
+					num : num,
+					gamount : gamount
+				},
+				success : function(data, status, xhr) {
+					var sum = gamount * gprice;
+					$("#sum" + num).text(sum);
+				},
+				error : function(xhr, status, error) {
+					console.log("수량 변경 비동기처리 오류");
+				}
+			}); // end of 'ajax'
+		}); // end of '수량 변경'
 	});
 </script>
 </head>
@@ -115,12 +138,14 @@
 					</td>
 					<td class="c"><%=gprice%></td>
 					<td style="padding-left:3rem;">
-						<input type="text" name="gamount" id="gamount" 
+						<input type="text" name="gamount" id="gamount<%=num%>" 
 						style="text-align: right;" maxlength="2" size="1" 
 						value="<%=gamount%>">
-						<input type="button" value="수량 변경"></td>
+						<input type="button" value="수량 변경" class="changeQty" 
+						data="<%=num%>" data-price="<%=gprice%>">
+					</td>
 					<td class="c">
-						<span><%=gprice * gamount%></span>
+						<span id="sum<%=num%>"><%=gprice * gamount%></span>
 					</td>
 					<td class="c"><input type="button" value="구매"></td>
 					<td class="c">
