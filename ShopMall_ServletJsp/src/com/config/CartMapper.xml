@@ -23,4 +23,18 @@
 	<update id="changeQty" parameterType="HashMap">
 		update cart set gamount = #{gamount} where num = #{num}
 	</update>
+	
+	<delete id="delChecked" parameterType="ArrayList">
+		delete from cart where num in 
+		<foreach collection="list" item="numList" open="(" separator="," close=")">
+			#{numList}
+		</foreach>
+	</delete>
+	
+	<delete id="delAll" parameterType="ArrayList">
+		delete from cart where num in 
+		<foreach collection="list" item="numList" open="(" separator="," close=")">
+			#{numList}
+		</foreach>
+	</delete>
 </mapper>

@@ -59,6 +59,27 @@
 				}
 			}); // end of 'ajax'
 		}); // end of '수량 변경'
+		
+		// 선택한 상품 삭제
+		$("#delChecked").on("click", function() {
+			var num = [];
+			$(".checkOne:checked").each(function(idx, data) {
+			// $("input:checkbox[name='checkOne']:checked").each(function(idx, ele) {
+				num[idx] = $(this).val();
+			});
+			console.log("삭제하는 상품의 주문번호: " + num);
+			location.href = "DeleteCheckedServlet?data=" + num;
+		});
+
+		// 장바구니 전체 삭제
+		$("#delAll").on("click", function() {
+			// checkbox 데이터 전송할 시, 체크되어있는 것만 보내는 것 주의.
+			$(".checkOne").each(function(idx, data) {
+				this.checked = true;
+			});
+			$("form").attr("action", "DeleteAllServlet");
+			$("form").submit(); // trigger
+		});
 	});
 </script>
 </head>
@@ -123,7 +144,8 @@
 				%>
 				<tr>	
 					<td class="c">
-						<input type="checkbox" name="checkOne" class="checkOne">
+						<input type="checkbox" name="checkOne" class="checkOne"
+						value="<%=num%>">
 					</td>
 					<td class="c"><%=num%></td>
 					<td class="c">
@@ -172,7 +194,8 @@
 					<td colspan="6"></td>
 					<td colspan="4" style="text-align:right;">
 						<a href="">전체 구매</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<a href="">전체 삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="#" id="delChecked">선택한 상품 삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button id="delAll">전체 삭제</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<a href="GoodsListServlet">계속 쇼핑하기</a>
 					</td>
 				</tr>

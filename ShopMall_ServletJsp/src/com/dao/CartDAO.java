@@ -29,4 +29,13 @@ public class CartDAO {
 		return n;
 	}
 
+	public int delChecked(SqlSession session, List<String> list) {
+		int n = session.delete("CartMapper.delChecked", list);
+		return n;
+	}
+
+	public int delAll(SqlSession session, List<String> list) {
+		int n = session.delete("CartMapper.delAll", list);
+		return n;
+	}
 }

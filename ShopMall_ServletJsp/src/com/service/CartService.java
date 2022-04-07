@@ -66,4 +66,28 @@ public class CartService {
 		}
 		return n;
 	}
+
+	public int delChecked(List<String> list) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			n = dao.delChecked(session, list);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
+
+	public int delAll(List<String> list) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			n = dao.delAll(session, list);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
 }
