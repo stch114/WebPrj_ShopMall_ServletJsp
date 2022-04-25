@@ -24,9 +24,9 @@
 <body>
 	<form action="LogInServlet" method="post">
 		아이디: <input type="text" name="userid" id="userid"><br>
-		비밀번호: <input type="text" name="passwd" id="passwd"><br> 
+		비밀번호: <input type="password" name="passwd" id="passwd"><br> 
 		<input type="submit" value="로그인"> <input type="reset" value="취소">
 	</form>
-	아이디가 기억나지 않으신가요? <a href="SearchForIdUIServlet">아이디 찾기</a>
+	아이디가 기억나지 않으신가요?	<a href="SearchForIdUIServlet">아이디 찾기</a>
 </body>
 </html>
