@@ -18,8 +18,7 @@
 	text-align: center;
 }
 </style>
-<script type="text/javascript" 
-	src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
+<script type="text/javascript" src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		// 개별 삭제 
@@ -79,6 +78,12 @@
 			});
 			$("form").attr("action", "DeleteAllServlet");
 			$("form").submit(); // trigger
+		});
+		
+		// 단일 주문
+		$(".orderSep").on("click", function() {
+			var num = $(this).attr("data");
+			location.href = "ConfirmSepOrderInCartServlet?num=" + num;
 		});
 	});
 </script>
@@ -144,13 +149,12 @@
 				%>
 				<tr>	
 					<td class="c">
-						<input type="checkbox" name="checkOne" class="checkOne"
+						<input type="checkbox" name="checkOne" class="checkOne" 
 						value="<%=num%>">
 					</td>
 					<td class="c"><%=num%></td>
 					<td class="c">
-						<img src="images/items/<%=gimage%>.gif" style="width:7rem; 
-						padding-left:2rem;">
+						<img src="images/items/<%=gimage%>.gif" style="width:7rem; padding-left:2rem;">
 					</td>
 					<td style="padding-left:1rem;">
 						<%=gname%><br> 
@@ -163,16 +167,17 @@
 						<input type="text" name="gamount" id="gamount<%=num%>" 
 						style="text-align: right;" maxlength="2" size="1" 
 						value="<%=gamount%>">
-						<input type="button" value="수량 변경" class="changeQty" 
-						data="<%=num%>" data-price="<%=gprice%>">
+						<input type="button" value="수량 변경" class="changeQty" data="<%=num%>" 
+						data-price="<%=gprice%>">
 					</td>
 					<td class="c">
 						<span id="sum<%=num%>"><%=gprice * gamount%></span>
 					</td>
-					<td class="c"><input type="button" value="구매"></td>
 					<td class="c">
-						<input type="button" value="장바구니에서 삭제" class="deleteSep" 
-						data="<%=num%>">
+						<input type="button" value="주문하기" class="orderSep" data="<%=num%>">
+					</td>
+					<td class="c">
+						<input type="button" value="삭제" class="deleteSep" data="<%=num%>">
 					</td>
 					<td></td>
 				</tr>

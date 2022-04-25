@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+#table1 {
+	width: 80rem;
+}
+
+.header {
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.c {
+	text-align: center;
+}
+
+.division {
+	font-size: 1.2rem; 
+	font-weight: bold;
+}
+
+.height0_5 {
+	height: 0.5rem;
+}
+
+.height2_5 {
+	height: 2.5rem;
+}
+
+.height4 {
+	height: 4rem;
+}
+
+.hrSub {
+	border: 0;
+	height: 0.1rem;
+	background-color: #CCCCCC; 
+}
+
+.oInfo {
+	width: 10rem; 
+	height: 2.5rem;
+}
+
+.pInfo {
+	width: 10rem; 
+	height: 2.5rem;
+}
+
+.pInfo2 {
+	text-align: right;
+}
