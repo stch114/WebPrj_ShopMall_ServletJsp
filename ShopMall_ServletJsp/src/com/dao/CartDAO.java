@@ -6,11 +6,12 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import com.dto.CartDTO;
+import com.dto.OrderDTO;
 
 public class CartDAO {
 
-	public int putInCart(SqlSession session, CartDTO cart) {
-		int n = session.insert("CartMapper.putInCart", cart);
+	public int putInCart(SqlSession session, CartDTO cDto) {
+		int n = session.insert("CartMapper.putInCart", cDto);
 		return n;
 	}
 
@@ -36,6 +37,16 @@ public class CartDAO {
 
 	public int delAll(SqlSession session, List<String> list) {
 		int n = session.delete("CartMapper.delAll", list);
+		return n;
+	}
+
+	public CartDTO sepOrderInCart(SqlSession session, String num) {
+		CartDTO dto = session.selectOne("CartMapper.sepOrderInCart", num);
+		return dto;
+	}
+
+	public int completeSepOrderInCart(SqlSession session, OrderDTO oDto) {
+		int n = session.insert("CartMapper.completeSepOrderInCart", oDto);
 		return n;
 	}
 }

@@ -37,4 +37,17 @@
 			#{numList}
 		</foreach>
 	</delete>
+	
+	<select id="sepOrderInCart" parameterType="String" resultType="CartDTO">
+		select num, userid, gcode, gprice, gsize, gcolor, gamount, gname, gimage 
+		from cart where num = #{num}
+	</select>
+	
+	<insert id="completeSepOrderInCart" parameterType="OrderDTO">
+		insert into orderInfo (num, userid, gcode, gname, gprice, gsize, gcolor, gamount, 
+		gimage, ordername, post, addr1, addr2, phone1, phone2, phone3, paymethod, orderday)
+		values (orderInfo_seq.nextval, #{userid}, #{gcode}, #{gname}, #{gprice}, #{gsize}, 
+		#{gcolor}, #{gamount}, #{gimage}, #{ordername}, #{post}, #{addr1}, #{addr2}, 
+		#{phone1}, #{phone2}, #{phone3}, #{paymethod}, sysdate)
+	</insert>
 </mapper>
