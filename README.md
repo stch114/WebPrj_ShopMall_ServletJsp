@@ -7,13 +7,16 @@ ___
 ## DB 모델 및 구조
 **MEMBER(회원관리 테이블)**   
 ![](imagesReadme/2022-04-25-16-56-23.png)  
-![](imagesReadme/2022-04-25-16-58-58.png)   
+![](imagesReadme/2022-04-25-16-58-58.png) 
+___  
 **GOODS(상품 테이블)**   
 ![](imagesReadme/2022-04-25-16-59-38.png)  
 ![](imagesReadme/2022-04-25-16-59-56.png)  
+___
 **CART(장바구니 테이블)**  
 ![](imagesReadme/2022-04-25-17-00-16.png)  
 ![](imagesReadme/2022-04-25-17-00-30.png)  
+___
 **ORDERINFO(주문정보 테이블)**  
 ![](imagesReadme/2022-04-25-17-01-17.png)  
 ![](imagesReadme/2022-04-25-17-01-35.png)  
