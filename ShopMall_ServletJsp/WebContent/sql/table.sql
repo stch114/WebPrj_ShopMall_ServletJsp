@@ -170,14 +170,13 @@ insert into goods
    REFERENCES goods(gCode) ON DELETE CASCADE; 
    
    
-    create sequence cart_seq;
-    
+    CREATE SEQUENCE "SHOP"."CART_SEQ" MINVALUE 1 MAXVALUE 9999999999999999999999999999 
+    INCREMENT BY 1 START WITH 1 NOCACHE CYCLE;
     
     
     drop table orderInfo purge;
     
 
-    
    --주문 테이블
      create table orderInfo
   (  num NUMBER(6) PRIMARY KEY,
@@ -189,12 +188,14 @@ insert into goods
      gColor VARCHAR2(10) not null,
      gAmount NUMBER(2) not null,
      gImage varchar2(20) not null,
-     orderName VARCHAR2(10) NOT NULL,
-     post VARCHAR2(5) NOT NULL,
-     addr1 VARCHAR2(500) NOT NULL,
-     addr2 VARCHAR2(500) NOT NULL,
-     phone VARCHAR2(11) NOT NULL,
-     payMethod VARCHAR2(10) NOT NULL,
+     orderName VARCHAR2(10),
+     post VARCHAR2(5),
+     addr1 VARCHAR2(500),
+     addr2 VARCHAR2(500),
+     phone1 VARCHAR2(3),
+     phone2 VARCHAR2(4),
+     phone3 VARCHAR2(4),
+     payMethod VARCHAR2(30),
      orderDay DATE  DEFAULT SYSDATE
   );   
   alter table orderInfo
@@ -206,4 +207,5 @@ insert into goods
   add CONSTRAINT orderInfo_gCode_fk FOREIGN KEY(gCode)
    REFERENCES goods(gCode) ON DELETE CASCADE; 
    
-   create sequence orderInfo_seq;   
+   CREATE SEQUENCE "SHOP"."orderInfo_seq" MINVALUE 1 MAXVALUE 9999999999999999999999999999 
+   INCREMENT BY 1 START WITH 1 NOCACHE CYCLE;
