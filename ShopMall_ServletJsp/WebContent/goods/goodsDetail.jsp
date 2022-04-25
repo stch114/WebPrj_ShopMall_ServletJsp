@@ -44,6 +44,19 @@ session.removeAttribute("mesg");
 			$("form").attr("action", "CartServlet");
 		});
 
+		$("#order").on("click", function() {
+			if ($("#gsize").val() == "사이즈 선택") {
+				alert("사이즈를 선택하세요.");	
+				return false;
+			}
+			
+			if($("#gcolor").val() == "색상 선택") {
+				alert("색상을 선택하세요.");
+				return false;
+			}
+			
+			$("form").attr("action", "ConfirmDirectSepOrderServlet");
+		});
 	});
 </script>
 </head>
@@ -129,7 +142,7 @@ String gimage = dto.getGimage();
 						<tr>
 							<td></td>
 							<td>
-								<button>바로 구매</button>&nbsp;&nbsp;
+								<button id="order">주문하기</button>&nbsp;&nbsp;
 								<button id="cart">장바구니에 담기</button>
 							</td>
 						</tr>
