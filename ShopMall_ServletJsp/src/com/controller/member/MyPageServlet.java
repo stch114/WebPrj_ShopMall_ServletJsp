@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.MemberDTO;
-import com.service.MemberService;
 
 @WebServlet("/MyPageServlet")
 public class MyPageServlet extends HttpServlet {
@@ -23,14 +22,9 @@ public class MyPageServlet extends HttpServlet {
 		// MyPage 이용을 위해 session스코프에 저장해둔 로그인 정보 받음.
 		HttpSession session = request.getSession();
 		MemberDTO dto = (MemberDTO) session.getAttribute("logIn");
-
 		String nextPage = null;
 		if (dto != null) { // 로그인 정보가 있을 경우.
-			MemberService service = new MemberService();
-			String userid = dto.getUserid();
-			MemberDTO dto2 = service.myPage(userid);
 			nextPage = "myPage.jsp";
-			session.setAttribute("logIn", dto2); // 새로운 session정보 저장.
 			System.out.println("myPage 이동 성공");
 		} else { // 로그인 정보가 없는 경우.
 			nextPage = "LogInUIServlet";
