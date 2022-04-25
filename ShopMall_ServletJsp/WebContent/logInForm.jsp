@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <%
-	/* 로그인 되지 않은 상태에서 로그인이 필요한 작업 진행 시에 alert창 띄우기 위해  */
+	/* 로그인 되지 않은 상태에서 로그인이 필요한 작업을 진행할 시, alert창 띄우기 위해  */
 	String mesg = (String) session.getAttribute("mesg");
 if (mesg != null) { // 로그인 정보가 있다면(session으로 데이터가 제대로 넘어온다면)
 %>

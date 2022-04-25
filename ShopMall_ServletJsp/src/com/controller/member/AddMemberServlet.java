@@ -21,7 +21,7 @@ public class AddMemberServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("utf-8");
 		String userid = request.getParameter("userid");
 		String passwd = request.getParameter("passwd");

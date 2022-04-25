@@ -33,7 +33,7 @@
 							<td>
 								<a href="GoodsDetailServlet?gcode=<%=gcode%>">
 									<img src="images/items/<%=gimage%>.gif">
-								</a>	
+								</a>
 							</td>
 						</tr>
 						<tr>

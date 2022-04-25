@@ -20,10 +20,10 @@ public class CartServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		MemberDTO member = (MemberDTO) session.getAttribute("logIn");
+		MemberDTO mDto = (MemberDTO) session.getAttribute("logIn");
 		String nextPage = null;
-		if (member != null) { // 로그인 되어있는 경우.
-			String userid = member.getUserid();
+		if (mDto != null) { // 로그인 되어있는 경우.
+			String userid = mDto.getUserid();
 			String gcode = request.getParameter("gcode");
 			String gname = request.getParameter("gname");
 			String gprice = request.getParameter("gprice");
@@ -32,18 +32,18 @@ public class CartServlet extends HttpServlet {
 			String gcolor = request.getParameter("gcolor");
 			String gamount = request.getParameter("gamount");
 
-			CartDTO cart = new CartDTO();
-			cart.setUserid(userid);
-			cart.setGcode(gcode);
-			cart.setGname(gname);
-			cart.setGprice(Integer.parseInt(gprice));
-			cart.setGimage(gimage);
-			cart.setGsize(gsize);
-			cart.setGcolor(gcolor);
-			cart.setGamount(Integer.parseInt(gamount));
+			CartDTO cDto = new CartDTO();
+			cDto.setUserid(userid);
+			cDto.setGcode(gcode);
+			cDto.setGname(gname);
+			cDto.setGprice(Integer.parseInt(gprice));
+			cDto.setGimage(gimage);
+			cDto.setGsize(gsize);
+			cDto.setGcolor(gcolor);
+			cDto.setGamount(Integer.parseInt(gamount));
 
-			CartService c_service = new CartService();
-			int n = c_service.putInCart(cart);
+			CartService cService = new CartService();
+			int n = cService.putInCart(cDto);
 			System.out.println(n + "개 상품을 장바구니에 저장.");
 			nextPage = "GoodsDetailServlet?gcode=" + gcode;
 			session.setAttribute("mesg", "상품 코드 " + gcode + " 제품을 장바구니에 저장했습니다.");
