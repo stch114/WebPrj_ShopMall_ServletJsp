@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderMapper">
+
+	<insert id="directSepOrder" parameterType="OrderDTO">
+		insert into orderinfo (num, userid, gcode, gname, gprice, gsize, gcolor, gamount, 
+		gimage, orderday) values (orderInfo_seq.nextval, #{userid}, #{gcode}, #{gname}, 
+		#{gprice}, #{gsize}, #{gcolor}, #{gamount}, #{gimage}, sysdate)
+	</insert>
+
+	<update id="completeDirectSepOrder" parameterType="OrderDTO">
+		update orderinfo set ordername = #{ordername}, post = #{post}, addr1 = #{addr1},
+		addr2 = #{addr2}, phone1 = #{phone1}, phone2 = {phone2}, phone3 = #{phone3},
+		paymethod = #{paymethod} where userid = #{userid}
+	</update>
+</mapper>
